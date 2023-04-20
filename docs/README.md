@@ -13,4 +13,5 @@ createApp(App).mount('#app')
 vite3
 vue3
 vue-router4
+element-plus
 ```
