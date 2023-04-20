@@ -1,21 +1,35 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <router-view></router-view>
     </div>
   </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
+
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+router.beforeEach((to, from, next) => {
+  if (to.path == '/login') {
+    // 如果路径是 /login 则正常执行
+    next()
+  } else {
+    // 如果不是 /login，判断是否有 token
+    if (true) {
+      // 如果没有，则跳至登录页面
+      console.log("sss2s3")
+      next({ path: '/login' })
+    } else {
+      // 否则继续执行
+      next()
+    }
+  }
+})
+</script>
 
 <style scoped>
 header {

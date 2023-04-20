@@ -7,3 +7,10 @@ import './assets/main.css'
 
 createApp(App).mount('#app')
 ```
+
+### 技术栈
+```
+vite3
+vue3
+vue-router4
+```
