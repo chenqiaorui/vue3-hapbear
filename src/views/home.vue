@@ -2,8 +2,7 @@
 	<v-header />
 	<v-sidebar />
 	<div class="content-box" >
-        Home
-		<!-- <v-tags></v-tags>
+		<v-tags></v-tags>
 		<div class="content">
 			<router-view v-slot="{ Component }">
 				<transition name="move" mode="out-in">
@@ -12,16 +11,16 @@
 					</keep-alive>
 				</transition>
 			</router-view>
-		</div> -->
+		</div>
 	</div>
 </template>
 <script setup lang="ts">
-// import { useSidebarStore } from '../store/sidebar';
-// import { useTagsStore } from '../store/tags';
+import { useSidebarStore } from '../store/sidebar';
+import { useTagsStore } from '../store/tags';
 import vHeader from '@/components/header.vue';
 import vSidebar from '../components/sidebar.vue';
-// import vTags from '../components/tags.vue';
+import vTags from '../components/tags.vue';
 
-// const sidebar = useSidebarStore();
-// const tags = useTagsStore();
+const sidebar = useSidebarStore();
+const tags = useTagsStore();
 </script>

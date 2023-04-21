@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
 import { useTagsStore } from '../store/tags';
-// import { usePermissStore } from '../store/permiss';
+import { usePermissStore } from '../store/permiss';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { Lock, User } from '@element-plus/icons-vue';
@@ -61,7 +61,7 @@ const rules: FormRules = {
 	],
 	password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 };
-// const permiss = usePermissStore();
+const permiss = usePermissStore();
 const login = ref<FormInstance>();
 const submitForm = (formEl: FormInstance | undefined) => {
 	if (!formEl) return;
@@ -69,9 +69,9 @@ const submitForm = (formEl: FormInstance | undefined) => {
 		if (valid) {
 			ElMessage.success('登录成功');
 			localStorage.setItem('ms_username', param.username);
-			// const keys = permiss.defaultList[param.username == 'admin' ? 'admin' : 'user'];
-			// permiss.handleSet(keys);
-			// localStorage.setItem('ms_keys', JSON.stringify(keys));
+			const keys = permiss.defaultList[param.username == 'admin' ? 'admin' : 'user'];
+			permiss.handleSet(keys);
+			localStorage.setItem('ms_keys', JSON.stringify(keys));
 			router.push('/');
 		} else {
 			ElMessage.error('登录成功');
