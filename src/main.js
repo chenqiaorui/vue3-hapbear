@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from '@/router'
 
-// import * as ElementPlusIconsVue from '@element-plus/icons-vue';
+import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 
 import 'element-plus/dist/index.css';
 import './assets/css/icon.css';
@@ -39,9 +39,9 @@ const app = createApp(App) // 生成 Vue 实例 app
 app.use(router) // 引用路由实例
 
 // 注册elementplus图标
-// for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-//   app.component(key, component);
-// }
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component);
+}
 
 app.use(ElButton)
   .use(ElContainer)
